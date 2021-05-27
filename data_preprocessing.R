@@ -27,7 +27,7 @@ p <- ggplot() +
 
 #### 행정동 코드데이터 ---------------------------------------------------------------------
 ## 필요한 열만 추출 
-dong_code <- readxl::read_excel("./data/행정동코드_매핑정보_2018.xlsx", sheet = 1, col_names = T)
+dong_code <- readxl::read_excel("./data/dong_code.xlsx", sheet = 1, col_names = T)
 
 dong_code %<>% select(-c(행자부행정동코드)) %>%
   filter(시도명 == "서울") %>%
@@ -35,12 +35,12 @@ dong_code %<>% select(-c(행자부행정동코드)) %>%
   select(-c(시도명))
 
 #### 지하철 데이터 -------------------------------------------------------------------
-subway <- fread("./data/지하철_행정동추가.csv")
-gyeong <- fread("./data/경의중앙선_행정동추가.csv")
-chun <- fread("./data/경춘선_행정동추가.csv")
-airport <- fread("./data/공항철도_행정동추가.csv")
-bundang <- fread("./data/신분당선_행정동추가.csv")
-ui <- fread("./data/우이신설_행정동추가.csv")
+subway <- fread("./data/subway.csv")
+gyeong <- fread("./data/gyeong.csv")
+chun <- fread("./data/chun.csv")
+airport <- fread("./data/airport.csv")
+bundang <- fread("./data/bundang.csv")
+ui <- fread("./data/ui.csv")
 
 gyeong %<>% select(역명, 선명, gu, dong, x, y) %>% 
   rename(전철역명 = 역명, 호선 = 선명)
@@ -88,11 +88,11 @@ subway_map <- mapping %>% left_join(seoul_map, by = c("행정동코드" = "id"))
 
 #### 데이터 불러오기 -------------------------------------------------------------------
 
-final <- fread("./data/최종데이터.csv")
-candi <- fread("./data/클러스터포함_데이터.csv")
+final <- fread("./data/final.csv")
+candi <- fread("./data/cluster_include.csv")
 candi %<>% select(-c(cluster))
-prior <- fread("./data/클러스터포함_데이터.csv")
+prior <- fread("./data/cluster_include.csv")
 prior %<>% filter(cluster == 1)
-youthhouse <- fread("./data/청년주택_행정동추가.csv")
+youthhouse <- fread("./data/youthhouse.csv")
 
 save.image(file = "./data_preprocessing.RData")
