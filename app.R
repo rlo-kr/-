@@ -125,7 +125,8 @@ server <- function(input, output) {
   })
   
   colorInput <- reactive({
-    color_list[color_list$호선 == input$subway_station, "color"]
+    #color_list %>% filter(호선 == input$subway_station) %>% select(color)
+    color_list[color_list$호선 == input$subway_station,]$color
   })
   
   fillInput <- reactive({
