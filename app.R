@@ -121,11 +121,11 @@ ui <- fluidPage(
 # Define server logic ---
 server <- function(input, output) {
   stationInput <- reactive({
-    subway[호선==input$subway_station]
+    subway[subway$호선==input$subway_station]
   })
   
   colorInput <- reactive({
-    color_list[호선 == input$subway_station]$color
+    color_list[subway$호선 == input$subway_station]$color
   })
   
   fillInput <- reactive({
