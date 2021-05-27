@@ -4,7 +4,7 @@ library(readxl)
 library(magrittr)
 library(rgdal)
 
-#setwd("C:/Users/seses/Desktop/대학/2021-1/대용량자료관리및시각화/Project/data/Shiny/App/")
+#setwd("C:/Users/seses/Desktop/Shiny/App")
 
 #### 지도 데이터 ---------------------------------------------------------------------
 ## 지도 데이터와 결합 

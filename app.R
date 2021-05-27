@@ -5,7 +5,7 @@ library(cluster)
 library(stats)
 library(factoextra)
 
-#setwd("C:/Users/seses/Desktop/대학/2021-1/대용량자료관리및시각화/Project/data/Shiny/")
+#setwd("C:/Users/seses/Desktop/Shiny/")
 
 load("./data_preprocessing.RData")
 
